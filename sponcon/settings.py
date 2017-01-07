@@ -119,16 +119,27 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home2/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, 'content/static/')
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
+# # Static files (CSS, JavaScript, Images)
+# # https://docs.djangoproject.com/en/1.10/howto/static-files/
+# STATIC_URL = '/static/'
 
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = '/uploads/'
+# # Absolute filesystem path to the directory that will hold user-uploaded files.
+# # Example: "/home2/media/media.lawrence.com/media/"
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'content/static/')
+
+# # URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# # trailing slash.
+# # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+# MEDIA_URL = '/uploads/'
